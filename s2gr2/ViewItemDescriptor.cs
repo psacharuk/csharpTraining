@@ -1,4 +1,3 @@
-using System.Windows.Forms;
 using System;
 
 namespace s2gr2

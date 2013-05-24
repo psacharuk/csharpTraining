@@ -17,10 +17,10 @@ namespace s2gr2
 	{
 		private readonly IMessageBoxService _messageBoxService;
 
-		public LinkView()
+		public LinkView(IMessageBoxService messageBoxService)
 		{
 			InitializeComponent();
-			_messageBoxService = ServiceLocator.Instance.Resolve<IMessageBoxService>();
+			_messageBoxService = messageBoxService;
 		}
 
 		private void button1_Click(object sender, EventArgs e)

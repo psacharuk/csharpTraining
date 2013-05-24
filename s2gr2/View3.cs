@@ -8,18 +8,24 @@ using System.Text;
 using System.Threading;
 using System.Windows.Forms;
 using common;
+using Microsoft.Practices.Prism.Events;
 
 namespace s2gr2
 {
 	public partial class View3 : UserControl
 	{
 		private readonly IMessageBoxService _messageBoxService;
-		private readonly IAsyncService _asyncService = new AsyncService();
+		private readonly IEnumerable<IDataService<Person>> _pDataServices;
+		private readonly IAsyncService _asyncService;
+        private readonly IEventAggregator _eventAggregator;
 
-
-		public View3(IMessageBoxService messageBoxService)
+		public View3(IMessageBoxService messageBoxService, IAsyncService asyncService,
+			IEnumerable<IDataService<Person>> pDataService, IEventAggregator eventAggregator)
 		{
+            _eventAggregator = eventAggregator;
 			_messageBoxService = messageBoxService;
+			_pDataServices = pDataService;
+			_asyncService = asyncService;
 			InitializeComponent();
 		}
 
@@ -52,39 +58,16 @@ namespace s2gr2
 			);
 		}
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            dataGridView1.DataSource = _pDataService.GetData();
-        }
-	}
-
-    interface IDataService<TData>
-    {
-        IEnumerable<TData> GetData();
-    }
-    class PepoleDataService : IDataService<Person>
-    {
-        public IEnumerable<Person> GetData()
-        {
-            var rand = new Random();
-            var lst = new List<Person>();
-
-            for (int i = 0; i<100; i++)
-            {
-                lst.Add(
-                    new Person()
+		private void button3_Click(object sender, EventArgs eargs)
+		{
+			_asyncService.PerformAsyncAction(
+				() => _pDataServices.SelectMany(e => e.GetData()).ToList(),
+				data =>
                     {
-                        Name = string.Format("name {0}", i),
-                        SurName = string.Format("surname {0}", i)
+                        dataGridView1.DataSource = data;
+                       //_eventAggregator.GetEvent
                     }
-                    );
-            }
-            return lst;
-        }
-    }
-    public class Person
-    {
-        public string Name { get; set; }
-        public string SurName { get; set; }
-    }
+			);
+		}
+	}
 }

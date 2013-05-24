@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Windows.Forms;
-using common;
-using Ninject;
 using CommonServiceLocator.NinjectAdapter;
 using Microsoft.Practices.ServiceLocation;
+using Ninject;
+using common;
+using Microsoft.Practices.Prism.Events;
 
 namespace s2gr2
 {
@@ -19,11 +20,17 @@ namespace s2gr2
             var locator = new NinjectServiceLocator(ninject);
             ServiceLocator.SetLocatorProvider(() => locator);
 
-            ServiceLocator.Instance.Register<IMessageBoxService>(new FancyMessageBoxService());
-            ServiceLocator.Instance.Register<IIViewProvider>(new TabbedViewProvider());
-            ServiceLocator.Instance.Register(new Shell(ServiceLocator.Instance.Resolve<IIViewProvider>()));
+            var kernel = ServiceLocator.Current.GetInstance<IKernel>();
+            kernel.Bind<IEventAggregator>().To<EventAggregator>().InSingletonScope();
+            kernel.Bind<IMessageBoxService>().To<FancyMessageBoxService>();
+            kernel.Bind<IIViewProvider>().To<TabbedViewProvider>();
+            kernel.Bind<IAsyncService>().To<AsyncService>();
+            //kernel.Bind<IAsyncService>().To<AsyncService>().InSingletonScope();
+            kernel.Bind<IDataService<Person>>().To<PeopleDataService>();
+            kernel.Bind<IDataService<Person>>().To<PeopleDataService2>();
 
-            Application.Run(ServiceLocator.Instance.Resolve<Shell>());
+            //Application.Run(kernel.Get<Shell>());
+            Application.Run(ServiceLocator.Current.GetInstance<Shell>());
         }
     }
 }

@@ -1,21 +1,9 @@
 using System.Collections.Generic;
-using common;
 
 namespace s2gr2
 {
 	class TabbedViewProvider : IIViewProvider
 	{
-		public TabbedViewProvider()
-		{
-			ServiceLocator.Instance.Register(new View1(ServiceLocator.Instance.Resolve<IMessageBoxService>()));
-			ServiceLocator.Instance.Register(new View2(ServiceLocator.Instance.Resolve<IMessageBoxService>()));
-			ServiceLocator.Instance.Register(new View3(ServiceLocator.Instance.Resolve<IMessageBoxService>()));
-			ServiceLocator.Instance.Register(new LinkView());
-			ServiceLocator.Instance.Register(new SmileView());
-			ServiceLocator.Instance.Register(new NotepadView());
-			ServiceLocator.Instance.Register(new FileView());
-		}
-
 		public EProjectionType ProjectionType
 		{
 			get { return EProjectionType.Tabbed; }
@@ -29,7 +17,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 					{
 						Header = "View1",
-						View = ServiceLocator.Instance.Resolve<View1>()
+						View = typeof(View1)
 					}
 				);
 
@@ -37,7 +25,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 					{
 						Header = "links",
-						View = ServiceLocator.Instance.Resolve<LinkView>()
+						View = typeof(LinkView)
 					}
 				);
 
@@ -45,7 +33,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 				{
 					Header = "SMILE",
-					View = ServiceLocator.Instance.Resolve<SmileView>()
+					View = typeof(SmileView)
 				}
 				);
 
@@ -53,7 +41,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 				{
 					Header = "Notepad",
-					View = ServiceLocator.Instance.Resolve<NotepadView>()
+					View = typeof(NotepadView)
 				}
 			);
 
@@ -61,7 +49,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 				{
 					Header = "Pliki",
-					View = ServiceLocator.Instance.Resolve<FileView>()
+					View = typeof(FileView)
 				}
 			);
 
@@ -69,7 +57,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 				{
 					Header = "View2",
-					View = ServiceLocator.Instance.Resolve<View2>()
+					View = typeof(View2)
 				}
 			);
 
@@ -77,7 +65,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 				{
 					Header = "View3",
-					View = ServiceLocator.Instance.Resolve<View3>()
+					View = typeof(View3)
 				}
 			);
 

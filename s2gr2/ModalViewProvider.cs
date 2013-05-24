@@ -18,7 +18,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 					{
 						Header = "View1",
-						View = new View1(new FancyMessageBoxService())
+						View = typeof(FancyMessageBoxService)
 					}
 				);
 
@@ -26,7 +26,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 					{
 						Header = "links",
-						View = new LinkView()
+						View = typeof(LinkView)
 					}
 				);
 

@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using Microsoft.Practices.ServiceLocation;
 
 namespace s2gr2
 {
@@ -14,9 +15,13 @@ namespace s2gr2
 
 				foreach (var vd in viewProvider.GetViews())
 				{
-					vd.View.Dock = DockStyle.Fill;
+					//var kernel = ServiceLocator.Current.GetInstance<IKernel>();
+					//var view = (Control) kernel.Get(vd.View);
+
+					var view = (Control)ServiceLocator.Current.GetInstance(vd.View);
+					view.Dock = DockStyle.Fill;
 					var tp = new TabPage(vd.Header);
-					tp.Controls.Add(vd.View);
+					tp.Controls.Add(view);
 					tabControl1.TabPages.Add(tp);
 				}
 			}
@@ -29,7 +34,8 @@ namespace s2gr2
 					var item = new ToolStripMenuItem(vd.Header, null, (sender, args) =>
 																	{
 																		var form = new Form();
-																		form.Controls.Add(vd.View);
+																		var view = (Control)ServiceLocator.Current.GetInstance(vd.View);
+																		form.Controls.Add(view);
 																		form.ShowDialog();
 																	});
 

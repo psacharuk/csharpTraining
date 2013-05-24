@@ -35,13 +35,13 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="CommonServiceLocator.NinjectAdapter">
-      <HintPath>..\externalLibraries\CommonServiceLocator.NinjectAdapter.dll</HintPath>
+      <HintPath>..\ExternalLibraries\CommonServiceLocator.NinjectAdapter.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Practices.ServiceLocation">
-      <HintPath>..\externalLibraries\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\ExternalLibraries\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
     <Reference Include="Ninject">
-      <HintPath>..\externalLibraries\Ninject.dll</HintPath>
+      <HintPath>..\ExternalLibraries\Ninject.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -57,6 +57,9 @@
   <ItemGroup>
     <Compile Include="AsyncService.cs" />
     <Compile Include="IAsyncService.cs" />
+    <Compile Include="IDataService.cs" />
+    <Compile Include="PeopleDataService.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="View3.cs">
       <SubType>UserControl</SubType>
     </Compile>
