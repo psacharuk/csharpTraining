@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using common;
 
 namespace s2gr2
 {
@@ -10,7 +11,12 @@ namespace s2gr2
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new Shell(new TabbedViewProvider()));
+
+			ServiceLocator.Instance.Register<IMessageBoxService>(new FancyMessageBoxService());
+			ServiceLocator.Instance.Register<IIViewProvider>(new TabbedViewProvider());
+			ServiceLocator.Instance.Register(new Shell(ServiceLocator.Instance.Resolve<IIViewProvider>()));
+
+			Application.Run(ServiceLocator.Instance.Resolve<Shell>());
 		}
 	}
 }

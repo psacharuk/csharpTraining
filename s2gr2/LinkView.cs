@@ -9,14 +9,18 @@ using System.Net;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using common;
 
 namespace s2gr2
 {
 	public partial class LinkView : UserControl
 	{
+		private readonly IMessageBoxService _messageBoxService;
+
 		public LinkView()
 		{
 			InitializeComponent();
+			_messageBoxService = ServiceLocator.Instance.Resolve<IMessageBoxService>();
 		}
 
 		private void button1_Click(object sender, EventArgs e)
@@ -81,6 +85,8 @@ namespace s2gr2
 			//var s6 = sb.ToString();
 
 			dataGridView1.DataSource = lst;
+
+			_messageBoxService.ShowMessage("done");
 		}
 
 		static string GetUrl(string url)

@@ -55,6 +55,7 @@
     <Compile Include="NotepadView.Designer.cs">
       <DependentUpon>NotepadView.cs</DependentUpon>
     </Compile>
+    <Compile Include="ServiceLocator.cs" />
     <Compile Include="Shell.cs">
       <SubType>Form</SubType>
     </Compile>

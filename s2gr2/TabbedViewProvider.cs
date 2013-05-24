@@ -5,6 +5,14 @@ namespace s2gr2
 {
 	class TabbedViewProvider : IIViewProvider
 	{
+		public TabbedViewProvider()
+		{
+			ServiceLocator.Instance.Register(new View1(ServiceLocator.Instance.Resolve<IMessageBoxService>()));
+			ServiceLocator.Instance.Register(new LinkView());
+			ServiceLocator.Instance.Register(new SmileView());
+			ServiceLocator.Instance.Register(new NotepadView());
+		}
+
 		public EProjectionType ProjectionType
 		{
 			get { return EProjectionType.Tabbed; }
@@ -18,7 +26,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 					{
 						Header = "View1",
-						View = new View1(new FancyMessageBoxService())
+						View = ServiceLocator.Instance.Resolve<View1>()
 					}
 				);
 
@@ -26,7 +34,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 					{
 						Header = "links",
-						View = new LinkView()
+						View = ServiceLocator.Instance.Resolve<LinkView>()
 					}
 				);
 
@@ -34,7 +42,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 				{
 					Header = "SMILE",
-					View = new SmileView()
+					View = ServiceLocator.Instance.Resolve<SmileView>()
 				}
 				);
 
@@ -42,7 +50,7 @@ namespace s2gr2
 				new ViewItemDescriptor()
 				{
 					Header = "Notepad",
-					View = new NotepadView()
+					View = ServiceLocator.Instance.Resolve<NotepadView>()
 				}
 			);
 
