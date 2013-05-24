@@ -5,5 +5,7 @@ namespace common
 	public interface IMessageBoxService
 	{
 		void ShowMessage(string message, EMessageType type = EMessageType.Alert);
+        bool Confirm(string message);
+        //bool Prompt(???);
 	}
 }

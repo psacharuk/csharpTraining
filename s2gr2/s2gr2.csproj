@@ -46,18 +46,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EProjectionType.cs" />
     <Compile Include="FancyMessageBoxService.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="IIViewProvider.cs" />
+    <Compile Include="ModalViewProvider.cs" />
+    <Compile Include="Shell.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Shell.Designer.cs">
+      <DependentUpon>Shell.cs</DependentUpon>
     </Compile>
-    <Compile Include="LinkForm.cs">
-      <SubType>Form</SubType>
+    <Compile Include="LinkView.cs">
+      <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="LinkForm.Designer.cs">
-      <DependentUpon>LinkForm.cs</DependentUpon>
+    <Compile Include="LinkView.Designer.cs">
+      <DependentUpon>LinkView.cs</DependentUpon>
     </Compile>
     <Compile Include="MessageBoxForm.cs">
       <SubType>Form</SubType>
@@ -68,17 +71,31 @@
     <Compile Include="MessageBoxService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SmileView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SmileView.Designer.cs">
+      <DependentUpon>SmileView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NotepadLoader.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NotepadLoader.Designer.cs">
+      <DependentUpon>NotepadLoader.cs</DependentUpon>
+    </Compile>
     <Compile Include="View1.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="View1.Designer.cs">
       <DependentUpon>View1.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="ViewItemDescriptor.cs" />
+    <Compile Include="TabbedViewProvider.cs" />
+    <EmbeddedResource Include="Shell.resx">
+      <DependentUpon>Shell.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LinkForm.resx">
-      <DependentUpon>LinkForm.cs</DependentUpon>
+    <EmbeddedResource Include="LinkView.resx">
+      <DependentUpon>LinkView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MessageBoxForm.resx">
       <DependentUpon>MessageBoxForm.cs</DependentUpon>
@@ -93,6 +110,12 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SmileView.resx">
+      <DependentUpon>SmileView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="NotepadLoader.resx">
+      <DependentUpon>NotepadLoader.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View1.resx">
       <DependentUpon>View1.cs</DependentUpon>
     </EmbeddedResource>
@@ -117,6 +140,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\error.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smile.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -9,5 +9,11 @@ namespace s2gr2
 		{
 			MessageBox.Show(message);
 		}
-	}
+
+
+        public bool Confirm(string message)
+        {
+            return false;
+        }
+    }
 }
