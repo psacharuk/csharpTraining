@@ -1,3 +1,4 @@
+using System;
 using common;
 
 namespace s2gr2
@@ -12,10 +13,11 @@ namespace s2gr2
 
         public bool Confirm(string message)
         {
-            using (var frm = new ConfirmFrame())
-            {
+            throw new NotImplementedException();
+            //using (var frm = new ConfirmFrame())
+            //{
 
-            }
+            //}
         }
     }
 }

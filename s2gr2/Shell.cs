@@ -14,7 +14,7 @@ namespace s2gr2
 
 				foreach (var vd in viewProvider.GetViews())
 				{
-                    vd.View.Dock = DockStyle.Fill;
+					vd.View.Dock = DockStyle.Fill;
 					var tp = new TabPage(vd.Header);
 					tp.Controls.Add(vd.View);
 					tabControl1.TabPages.Add(tp);

@@ -47,9 +47,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EProjectionType.cs" />
-    <Compile Include="FancyMessageBoxService.cs" />
     <Compile Include="IIViewProvider.cs" />
     <Compile Include="ModalViewProvider.cs" />
+    <Compile Include="NotepadView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="NotepadView.Designer.cs">
+      <DependentUpon>NotepadView.cs</DependentUpon>
+    </Compile>
     <Compile Include="Shell.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,13 +67,6 @@
     <Compile Include="LinkView.Designer.cs">
       <DependentUpon>LinkView.cs</DependentUpon>
     </Compile>
-    <Compile Include="MessageBoxForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="MessageBoxForm.Designer.cs">
-      <DependentUpon>MessageBoxForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="MessageBoxService.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SmileView.cs">
@@ -76,12 +74,6 @@
     </Compile>
     <Compile Include="SmileView.Designer.cs">
       <DependentUpon>SmileView.cs</DependentUpon>
-    </Compile>
-    <Compile Include="NotepadLoader.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="NotepadLoader.Designer.cs">
-      <DependentUpon>NotepadLoader.cs</DependentUpon>
     </Compile>
     <Compile Include="View1.cs">
       <SubType>UserControl</SubType>
@@ -91,14 +83,14 @@
     </Compile>
     <Compile Include="ViewItemDescriptor.cs" />
     <Compile Include="TabbedViewProvider.cs" />
+    <EmbeddedResource Include="NotepadView.resx">
+      <DependentUpon>NotepadView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Shell.resx">
       <DependentUpon>Shell.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LinkView.resx">
       <DependentUpon>LinkView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="MessageBoxForm.resx">
-      <DependentUpon>MessageBoxForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -112,9 +104,6 @@
     </Compile>
     <EmbeddedResource Include="SmileView.resx">
       <DependentUpon>SmileView.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="NotepadLoader.resx">
-      <DependentUpon>NotepadLoader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="View1.resx">
       <DependentUpon>View1.cs</DependentUpon>
@@ -134,12 +123,6 @@
       <Project>{4CED82DF-AE62-49BB-B456-5DED938EDD62}</Project>
       <Name>common</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\alert.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Resources\error.jpg" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\smile.jpg" />

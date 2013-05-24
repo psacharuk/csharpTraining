@@ -29,5 +29,17 @@ namespace s2gr2
 		{
 			_messageBoxService.ShowMessage("hello windows forms!", EMessageType.Error);
 		}
+
+		private void button3_Click(object sender, EventArgs e)
+		{
+			var info = new PromptInfo("Podaj swój numer karty kredytowej");
+			if(_messageBoxService.Prompt(info))
+			{
+				if(_messageBoxService.Confirm("czy potwierdzasz swój nr karty"))
+				{
+					_messageBoxService.ShowMessage("a");
+				}
+			}
+		}
 	}
 }

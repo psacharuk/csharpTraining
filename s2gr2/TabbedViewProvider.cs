@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using common;
 
 namespace s2gr2
 {
@@ -37,13 +38,13 @@ namespace s2gr2
 				}
 				);
 
-            lst.Add(
-               new ViewItemDescriptor()
-               {
-                   Header = "NotepadLoader",
-                   View = new NotepadLoader()
-               }
-               );
+			lst.Add(
+				new ViewItemDescriptor()
+				{
+					Header = "Notepad",
+					View = new NotepadView()
+				}
+			);
 
 			return lst;
 		}

@@ -61,11 +61,11 @@
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(284, 262);
+			this.AutoSize = true;
 			this.Controls.Add(this.button1);
 			this.Controls.Add(this.dataGridView1);
 			this.Name = "LinkView";
-			this.Text = "LinkView";
+			this.Size = new System.Drawing.Size(284, 262);
 			((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
 			this.ResumeLayout(false);
 

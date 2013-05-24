@@ -23,11 +23,5 @@ namespace console1
 		{
 			Console.WriteLine(string.Format("{0} {1}", message, type.ToString()));
 		}
-
-
-        public bool Confirm(string message)
-        {
-            return false;
-        }
-    }
+	}
 }
