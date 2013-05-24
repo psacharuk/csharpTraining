@@ -7,8 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
-using common;
 using Microsoft.Practices.Prism.Events;
+using common;
 
 namespace s2gr2
 {
@@ -16,15 +16,15 @@ namespace s2gr2
 	{
 		private readonly IMessageBoxService _messageBoxService;
 		private readonly IEnumerable<IDataService<Person>> _pDataServices;
+		private readonly IEventAggregator _eventAggregator;
 		private readonly IAsyncService _asyncService;
-        private readonly IEventAggregator _eventAggregator;
 
 		public View3(IMessageBoxService messageBoxService, IAsyncService asyncService,
 			IEnumerable<IDataService<Person>> pDataService, IEventAggregator eventAggregator)
 		{
-            _eventAggregator = eventAggregator;
 			_messageBoxService = messageBoxService;
 			_pDataServices = pDataService;
+			_eventAggregator = eventAggregator;
 			_asyncService = asyncService;
 			InitializeComponent();
 		}
@@ -63,10 +63,11 @@ namespace s2gr2
 			_asyncService.PerformAsyncAction(
 				() => _pDataServices.SelectMany(e => e.GetData()).ToList(),
 				data =>
-                    {
-                        dataGridView1.DataSource = data;
-                       //_eventAggregator.GetEvent
-                    }
+					{
+						dataGridView1.DataSource = data;
+						_eventAggregator.GetEvent<DataArrivedEvent>()
+							.Publish(data);
+					}
 			);
 		}
 	}

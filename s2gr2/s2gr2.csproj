@@ -37,6 +37,9 @@
     <Reference Include="CommonServiceLocator.NinjectAdapter">
       <HintPath>..\ExternalLibraries\CommonServiceLocator.NinjectAdapter.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Practices.Prism, Version=4.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\ExternalLibraries\Microsoft.Practices.Prism.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.Practices.ServiceLocation, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\ExternalLibraries\Microsoft.Practices.ServiceLocation.dll</HintPath>
     </Reference>
@@ -56,6 +59,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsyncService.cs" />
+    <Compile Include="DataArrivedEvent.cs" />
     <Compile Include="IAsyncService.cs" />
     <Compile Include="IDataService.cs" />
     <Compile Include="PeopleDataService.cs" />
