@@ -3,18 +3,6 @@ using System.Threading;
 
 namespace s2gr2
 {
-    class Company
-    {
-        public string Name { get; set; }
-        public int Nip { get; set; }
-        public int Regon { get; set; }
-    }
-
-    class CompanyDataService : IDataService<Company>
-    {
-        
-    }
-
 	class PeopleDataService : IDataService<Person>
 	{
 		public IEnumerable<Person> GetData()

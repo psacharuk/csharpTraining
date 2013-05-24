@@ -27,7 +27,7 @@ namespace s2gr2
 			kernel.Bind<IAsyncService>().To<AsyncService>();
 			kernel.Bind<IDataService<Person>>().To<PeopleDataService>();
 			kernel.Bind<IDataService<Person>>().To<PeopleDataService2>();
-            kernel.Bind<IDataService<Company>>().To<CompanyDataService>();
+			kernel.Bind<IDataService<Company>>().To<CompanyDataService>();
 
 			//Application.Run(kernel.Get<Shell>());
 			Application.Run(ServiceLocator.Current.GetInstance<Shell>());

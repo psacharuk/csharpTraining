@@ -69,6 +69,14 @@ namespace s2gr2
 				}
 			);
 
+			lst.Add(
+				new ViewItemDescriptor()
+				{
+					Header = "Firmy",
+					View = typeof(CompanyView)
+				}
+			);
+
 			return lst;
 		}
 	}

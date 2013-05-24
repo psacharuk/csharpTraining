@@ -59,6 +59,14 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AsyncService.cs" />
+    <Compile Include="Company.cs" />
+    <Compile Include="CompanyDataService.cs" />
+    <Compile Include="CompanyView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CompanyView.Designer.cs">
+      <DependentUpon>CompanyView.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataArrivedEvent.cs" />
     <Compile Include="IAsyncService.cs" />
     <Compile Include="IDataService.cs" />
@@ -120,6 +128,9 @@
     </Compile>
     <Compile Include="ViewItemDescriptor.cs" />
     <Compile Include="TabbedViewProvider.cs" />
+    <EmbeddedResource Include="CompanyView.resx">
+      <DependentUpon>CompanyView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View3.resx">
       <DependentUpon>View3.cs</DependentUpon>
     </EmbeddedResource>
