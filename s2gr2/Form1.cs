@@ -23,9 +23,9 @@ namespace s2gr2
 			_messageBoxService.ShowMessage("hello windows forms!", EMessageType.Error);
 		}
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            new LinkForm().ShowDialog();
-        }
+		private void button3_Click(object sender, EventArgs e)
+		{
+			
+		}
 	}
 }
