@@ -9,6 +9,7 @@ namespace s2gr2
 		{
 			ServiceLocator.Instance.Register(new View1(ServiceLocator.Instance.Resolve<IMessageBoxService>()));
 			ServiceLocator.Instance.Register(new View2(ServiceLocator.Instance.Resolve<IMessageBoxService>()));
+			ServiceLocator.Instance.Register(new View3(ServiceLocator.Instance.Resolve<IMessageBoxService>()));
 			ServiceLocator.Instance.Register(new LinkView());
 			ServiceLocator.Instance.Register(new SmileView());
 			ServiceLocator.Instance.Register(new NotepadView());
@@ -69,6 +70,14 @@ namespace s2gr2
 				{
 					Header = "View2",
 					View = ServiceLocator.Instance.Resolve<View2>()
+				}
+			);
+
+			lst.Add(
+				new ViewItemDescriptor()
+				{
+					Header = "View3",
+					View = ServiceLocator.Instance.Resolve<View3>()
 				}
 			);
 

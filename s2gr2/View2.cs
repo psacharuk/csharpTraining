@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Drawing;
 using System.Data;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -25,7 +26,44 @@ namespace s2gr2
 			//                        _messageBoxService.ShowMessage("trala");
 			//                    };
 			button6.Click += (s, e) => _messageBoxService.ShowMessage("trala");
+
+			//var lst = new List<Action>();
+			//for(int i=0;i<5;++i)
+			//{
+			//    //int d = i;
+			//    lst.Add(
+			//        () => _messageBoxService.ShowMessage(d.ToString())
+			//    );
+			//}
+			//lst.ForEach(e=>e());
+
+			//var lst = new List<_____Anonymous_lambdsa_type_XY>();
+			//for (int i = 0; i < 5; ++i)
+			//{
+			//    lst.Add(
+			//        new _____Anonymous_lambdsa_type_XY(ref i, _messageBoxService)
+			//    );
+			//}
+			//lst.ForEach(e => e.Anonymous_function_XX());
 		}
+
+		class _____Anonymous_lambdsa_type_XY
+		{
+			private int _i;
+			private readonly IMessageBoxService _messageBoxService;
+
+			public _____Anonymous_lambdsa_type_XY(ref int i, IMessageBoxService messageBoxService)
+			{
+				_i = i;
+				_messageBoxService = messageBoxService;
+			}
+
+			public void Anonymous_function_XX()
+			{
+				_messageBoxService.ShowMessage(_i.ToString());
+			}
+		}
+
 		// 1 1 2 3 5 8 13 21 ...
 		decimal fib(decimal x)
 		{
@@ -49,7 +87,12 @@ namespace s2gr2
 			//UpdateFibUIDelegate del = UpdateFibUiAction;
 			UpdateFibUIDelegate del = (val, cap) => label1.Text = string.Format("{0} {1}", cap, val);
 			var ret = fib(30);
-			label1.BeginInvoke(del, ret, "fib: ");
+			//label1.BeginInvoke(del, ret, "fib: ");
+			//Action<decimal, string> act = (val, cap) => label1.Text = string.Format("{0} {1}", cap, val);
+			//label1.BeginInvoke(act, ret, "fib: ");
+
+			//label1.BeginInvoke(() => label1.Text = string.Format("{0} {1}", "trala", ret));
+			label1.BeginInvoke((Action)(() => label1.Text = string.Format("{0} {1}", "trala", ret)));
 		}
 
 		//private void UpdateFibUiAction(decimal val, string cap)

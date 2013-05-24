@@ -1,22 +1,29 @@
 ﻿using System;
 using System.Windows.Forms;
 using common;
+using Ninject;
+using CommonServiceLocator.NinjectAdapter;
+using Microsoft.Practices.ServiceLocation;
 
 namespace s2gr2
 {
-	static class Program
-	{
-		[STAThread]
-		static void Main()
-		{
-			Application.EnableVisualStyles();
-			Application.SetCompatibleTextRenderingDefault(false);
+    static class Program
+    {
+        [STAThread]
+        static void Main()
+        {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
 
-			ServiceLocator.Instance.Register<IMessageBoxService>(new FancyMessageBoxService());
-			ServiceLocator.Instance.Register<IIViewProvider>(new TabbedViewProvider());
-			ServiceLocator.Instance.Register(new Shell(ServiceLocator.Instance.Resolve<IIViewProvider>()));
+            IKernel ninject = new StandardKernel();
+            var locator = new NinjectServiceLocator(ninject);
+            ServiceLocator.SetLocatorProvider(() => locator);
 
-			Application.Run(ServiceLocator.Instance.Resolve<Shell>());
-		}
-	}
+            ServiceLocator.Instance.Register<IMessageBoxService>(new FancyMessageBoxService());
+            ServiceLocator.Instance.Register<IIViewProvider>(new TabbedViewProvider());
+            ServiceLocator.Instance.Register(new Shell(ServiceLocator.Instance.Resolve<IIViewProvider>()));
+
+            Application.Run(ServiceLocator.Instance.Resolve<Shell>());
+        }
+    }
 }

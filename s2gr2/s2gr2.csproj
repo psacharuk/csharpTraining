@@ -34,6 +34,15 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CommonServiceLocator.NinjectAdapter">
+      <HintPath>..\externalLibraries\CommonServiceLocator.NinjectAdapter.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ServiceLocation">
+      <HintPath>..\externalLibraries\Microsoft.Practices.ServiceLocation.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject">
+      <HintPath>..\externalLibraries\Ninject.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,6 +55,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AsyncService.cs" />
+    <Compile Include="IAsyncService.cs" />
+    <Compile Include="View3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View3.Designer.cs">
+      <DependentUpon>View3.cs</DependentUpon>
+    </Compile>
     <Compile Include="DelegateCallbackSampleClass.cs" />
     <Compile Include="View2.cs">
       <SubType>UserControl</SubType>
@@ -68,7 +85,6 @@
     <Compile Include="NotepadView.Designer.cs">
       <DependentUpon>NotepadView.cs</DependentUpon>
     </Compile>
-    <Compile Include="ServiceLocator.cs" />
     <Compile Include="Shell.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +113,9 @@
     </Compile>
     <Compile Include="ViewItemDescriptor.cs" />
     <Compile Include="TabbedViewProvider.cs" />
+    <EmbeddedResource Include="View3.resx">
+      <DependentUpon>View3.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="View2.resx">
       <DependentUpon>View2.cs</DependentUpon>
     </EmbeddedResource>

@@ -1,15 +1,19 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace s2gr2
 {
-	public delegate void DoSomethingDelegate();
+	//public delegate void DoSomethingDelegate();
 
-	public delegate double DoOtherThingDelegate(double x);
+	//public delegate double DoOtherThingDelegate(double x);
 
 	public class DelegateCallbackSampleClass
 	{
-		private DoSomethingDelegate _doSomething;
-		private DoOtherThingDelegate _doOtherThing;
+		//private DoSomethingDelegate _doSomething;
+		//private DoOtherThingDelegate _doOtherThing;
+
+		private Action _doSomething;
+		private Func<double, double> _doOtherThing;
 
 		public DelegateCallbackSampleClass()
 		{
@@ -17,7 +21,7 @@ namespace s2gr2
 			_doOtherThing = DoOtherThingAction;
 		}
 
-		public DelegateCallbackSampleClass(DoSomethingDelegate dsa, DoOtherThingDelegate doa)
+		public DelegateCallbackSampleClass(Action dsa, Func<double, double> doa)
 		{
 			_doSomething = dsa;
 			_doOtherThing = doa;
