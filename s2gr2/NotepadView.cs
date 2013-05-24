@@ -55,6 +55,4 @@ namespace s2gr2
 			}
 		}
 	}
-
-       
 }

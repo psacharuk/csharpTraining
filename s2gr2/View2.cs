@@ -11,11 +11,11 @@ using common;
 
 namespace s2gr2
 {
-	public partial class View1 : UserControl
+	public partial class View2 : UserControl
 	{
 		private readonly IMessageBoxService _messageBoxService;
 
-		public View1(IMessageBoxService messageBoxService)
+		public View2(IMessageBoxService messageBoxService)
 		{
 			_messageBoxService = messageBoxService;
 			InitializeComponent();
@@ -79,6 +79,13 @@ namespace s2gr2
 		{
 			public int Val { get; set; }
 		}
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            var sc = new DelegateCallbackSampaleClass();
+            sc.DoSomething();
+            _messageBoxService.ShowMessage(sc.DoOtherThing(2).ToString());
+        }
 
 		//private void button5_Click(object sender, EventArgs e)
 		//{

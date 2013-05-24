@@ -46,6 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DelegateCallbackSampaleClass.cs" />
+    <Compile Include="View2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="View2.Designer.cs">
+      <DependentUpon>View2.cs</DependentUpon>
+    </Compile>
     <Compile Include="EProjectionType.cs" />
     <Compile Include="FileView.cs">
       <SubType>UserControl</SubType>
@@ -90,6 +97,9 @@
     </Compile>
     <Compile Include="ViewItemDescriptor.cs" />
     <Compile Include="TabbedViewProvider.cs" />
+    <EmbeddedResource Include="View2.resx">
+      <DependentUpon>View2.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FileView.resx">
       <DependentUpon>FileView.cs</DependentUpon>
     </EmbeddedResource>
