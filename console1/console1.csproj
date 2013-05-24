@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{5514DE20-A3D0-4073-949D-D7AA2F066B47}</ProjectGuid>
+    <ProjectGuid>{D7A275D2-CE3E-442A-9E3B-9E851A5323B1}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ConsoleApplication1</RootNamespace>
-    <AssemblyName>ConsoleApplication1</AssemblyName>
+    <RootNamespace>console1</RootNamespace>
+    <AssemblyName>console1</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>Client</TargetFrameworkProfile>
     <FileAlignment>512</FileAlignment>
@@ -48,7 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\common\common.csproj">
-      <Project>{B85A55FE-2421-42F3-B83E-B8C069E38F14}</Project>
+      <Project>{4CED82DF-AE62-49BB-B456-5DED938EDD62}</Project>
       <Name>common</Name>
     </ProjectReference>
   </ItemGroup>
