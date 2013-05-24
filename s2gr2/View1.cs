@@ -54,53 +54,5 @@ namespace s2gr2
 				}
 			}
 		}
-
-		// 1 1 2 3 5 8 13 21 ...
-		decimal fib(decimal x)
-		{
-			if (x == 1 || x == 2)
-				return 1;
-			return fib(x - 1) + fib(x - 2);
-		}
-
-		private void button5_Click(object sender, EventArgs e)
-		{
-			var t1 = new Thread(Start);
-			t1.Start();
-			t1.Join();
-		}
-
-		private void Start()
-		{
-			label1.Text = fib(20).ToString();
-		}
-
-		class ThreadData
-		{
-			public int Val { get; set; }
-		}
-
-		//private void button5_Click(object sender, EventArgs e)
-		//{
-		//    var t1 = new Thread(Start);
-		//    var t2 = new Thread(Start);
-		//    var data = new ThreadData(){Val = 0};
-		//    t1.Start(data);
-		//    t2.Start(data);
-		//    t1.Join();
-		//    t2.Join();
-		//    label1.Text = data.Val.ToString();
-		//}
-
-		//object _syncObject = new object();
-		//private void Start(object o)
-		//{
-		//    var data = (ThreadData)o;
-		//    for (int i = 0; i < 100000; ++i)
-		//    {
-		//        lock(_syncObject)
-		//            ++data.Val;
-		//    }
-		//}
 	}
 }

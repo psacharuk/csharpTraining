@@ -46,7 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DelegateCallbackSampaleClass.cs" />
+    <Compile Include="DelegateCallbackSampleClass.cs" />
     <Compile Include="View2.cs">
       <SubType>UserControl</SubType>
     </Compile>
