@@ -2,7 +2,7 @@ namespace common
 {
 	public enum EMessageType { Alert, Error }
 
-	public class PromptInfo
+	public class PromptInfo<T>
 	{
 		public PromptInfo(string message)
 		{
@@ -11,13 +11,13 @@ namespace common
 
 		public string Message { get; set; }
 
-		public string ReturnValue { get; set; }
+		public T ReturnValue { get; set; }
 	}
 
 	public interface IMessageBoxService
 	{
 		void ShowMessage(string message, EMessageType type = EMessageType.Alert);
 		bool Confirm(string message);
-		bool Prompt(PromptInfo info);
+		bool Prompt<T>(PromptInfo<T> info);
 	}
 }

@@ -32,10 +32,22 @@ namespace s2gr2
 
 		private void button3_Click(object sender, EventArgs e)
 		{
-			var info = new PromptInfo("Podaj swój numer karty kredytowej");
+			var info = new PromptInfo<string>("Podaj swój numer karty kredytowej");
 			if(_messageBoxService.Prompt(info))
 			{
 				if(_messageBoxService.Confirm("czy potwierdzasz swój nr karty"))
+				{
+					_messageBoxService.ShowMessage("a");
+				}
+			}
+		}
+
+		private void button4_Click(object sender, EventArgs e)
+		{
+			var info = new PromptInfo<int>("Podaj swój wiek");
+			if (_messageBoxService.Prompt(info))
+			{
+				if (_messageBoxService.Confirm(string.Format("czy potwierdzasz swój wiek: {0}", info.ReturnValue)))
 				{
 					_messageBoxService.ShowMessage("a");
 				}

@@ -3,7 +3,7 @@ using System.Windows.Forms;
 
 namespace common
 {
-	public partial class PromptForm : Form
+	public abstract partial class PromptForm<T> : Form
 	{
 		public PromptForm(string message)
 		{
@@ -23,10 +23,23 @@ namespace common
 			Close();
 		}
 
-		public string PromptValue
+		public T PromptValue
 		{
-			get { return textBox1.Text; }
-			set { textBox1.Text = value; }
+			get
+			{
+				try
+				{
+					return GetReturnValue();
+				}
+				catch (Exception)
+				{
+				}
+				return default(T);
+			}
+			set { SetReturnValue(value); }
 		}
+
+		protected abstract T GetReturnValue();
+		protected abstract void SetReturnValue(T val);
 	}
 }

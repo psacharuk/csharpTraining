@@ -2,6 +2,23 @@ using System.Windows.Forms;
 
 namespace common
 {
+	static class PromptFormFactory
+	{
+		public static PromptForm<T> CreatePromptForm<T>(string message)
+		{
+			var type = typeof (T);
+			if(type==typeof(string))
+			{
+				return new StringPromptForm(message) as PromptForm<T>;
+			}
+			if (type == typeof(int))
+			{
+				return new IntPromptForm(message) as PromptForm<T>;
+			}
+			return null;
+		}
+	}
+
 	public class FancyMessageBoxService : IMessageBoxService
 	{
 		public void ShowMessage(string message, EMessageType type = EMessageType.Alert)
@@ -22,11 +39,10 @@ namespace common
 			return false;
 		}
 
-		public bool Prompt(PromptInfo info)
+		public bool Prompt<T>(PromptInfo<T> info)
 		{
-			using (var frm = new PromptForm(info.Message))
+			using (var frm = PromptFormFactory.CreatePromptForm<T>(info.Message))
 			{
-				frm.PromptValue = "wprowadü tekst";
 				if (frm.ShowDialog() == DialogResult.OK)
 				{
 					info.ReturnValue = frm.PromptValue;

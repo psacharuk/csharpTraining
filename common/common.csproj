@@ -48,6 +48,9 @@
     <Compile Include="ConfirmForm.Designer.cs">
       <DependentUpon>ConfirmForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IntPromptForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="PromptForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -68,6 +71,9 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="StringPromptForm.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>

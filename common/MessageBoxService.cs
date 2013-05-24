@@ -14,7 +14,7 @@ namespace common
 			throw new System.NotImplementedException();
 		}
 
-		public bool Prompt(PromptInfo info)
+		public bool Prompt<T>(PromptInfo<T> info)
 		{
 			throw new System.NotImplementedException();
 		}

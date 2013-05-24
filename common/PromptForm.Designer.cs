@@ -1,6 +1,6 @@
 ﻿namespace common
 {
-	partial class PromptForm
+	partial class PromptForm<T>
 	{
 		/// <summary>
 		/// Required designer variable.
@@ -93,7 +93,7 @@
 
 		private System.Windows.Forms.Button button1;
 		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Label label1;
+		protected System.Windows.Forms.TextBox textBox1;
 	}
 }

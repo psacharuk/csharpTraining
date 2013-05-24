@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="EProjectionType.cs" />
+    <Compile Include="FileView.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="FileView.Designer.cs">
+      <DependentUpon>FileView.cs</DependentUpon>
+    </Compile>
     <Compile Include="IIViewProvider.cs" />
     <Compile Include="ModalViewProvider.cs" />
     <Compile Include="NotepadView.cs">
@@ -84,6 +90,9 @@
     </Compile>
     <Compile Include="ViewItemDescriptor.cs" />
     <Compile Include="TabbedViewProvider.cs" />
+    <EmbeddedResource Include="FileView.resx">
+      <DependentUpon>FileView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="NotepadView.resx">
       <DependentUpon>NotepadView.cs</DependentUpon>
     </EmbeddedResource>
